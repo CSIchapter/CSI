@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSI VIT-AP</title>
+    </head>
+    <style>
+        body{
+            background-image: url("csi.png");
+            background-size: 1500px 900px;
+            background-color: black;
+            color:burlywood;
+        }
+        h1{
+            text-align: center;
+        }
+        
+    </style>
+    <body>
+        
+        <h1>Welcome to CSI Chapter VIT-AP</h1>
+        <p>Hope you guys are stafe and having healthy vacation, We have completed our CSI Chapter club for this academic year.</p>
+        <p>We are requested you to fill this form in order to ensure your participation in our club.  Please fill this form who are registered for this club of AY 2021-2022</p>
+        <form method="post" action="https://sheetdb.io/api/v1/nevoxesu8phbr" id="sheetdb-form">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="data[name]"required>
+            <p></p>
+            <label for="number">Registration Number</label>
+            <input type="text" id="number" name="data[number]" required>
+            <p></p>
+            <label for="email">Email</label>
+            <input for="email" type="email" name="data[email]" required>
+            <p></p>
+            <label for="feedback">Feedback</label>
+            <textarea id="feedback"  rows="4" cols="50" name="data[feedback]">
+            </textarea>
+            <p></p>
+            <input type="submit" value="submit">
+        </form>
+        <script>
+            var form=document.getElementById("sheetdb-form");
+            form.addEventListener("submit",e=>{
+                e.preventDefault();
+                fetch(form.action,{
+                    method:"POST",
+                    body:new FormData(document.getElementById("sheetdb-form")),
+                }).then(
+                    response=>response.json()
+                ).then((html)=>{
+                    window.alert("Thank you for submitting form")
+                });
+            });
+        </script>
+    </body>
+</html>
